@@ -1,0 +1,20 @@
+/*
+    CSS classes specific of this application
+*/
+
+
+.app-bg-body {
+    background: #f8f8f8;
+}
+
+.app-inner-content {
+    min-height: 85vh;
+}
+
+.text-gray{
+    color:#6c757d!important;
+}
+
+.check-top{
+    margin-top:38px!important;
+}

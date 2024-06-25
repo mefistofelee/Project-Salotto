@@ -1,0 +1,36 @@
+@using Salotto.App.Common.Settings
+@using Salotto.Resources
+@model Salotto.App.Models.Login.LoginViewModel
+
+@{
+    Layout = "Layouts/_layout_Landing";
+}
+
+@section adhoc_css
+{
+}
+
+@section adhoc_scripts_bottom
+{
+    <script src="~/js/app-assets/tms-login.min.js"></script>
+    <script src="~/js/lib/Ybq/ybq-forms.min.js"></script>
+}
+
+<loginform1 id="login"
+            welcome-text="@AppStrings.Label_Welcome" 
+            action-url="/login/login"
+            remember-me-checked="true"
+            remember-me-text="@AppMenu.RememberMe"
+            remember-me-background="#6C757D"
+            taking-longer-text="@AppMessages.Info_ConnectionIsTakingLonger"
+            signin-button-text="@AppMenu.SignIn"
+            forgot-password-text="@AppMenu.ForgotPassword"
+            forgot-password-url="/login/recover"
+            bottom-logo-class="opacity5" />
+
+<script>
+    var Err_IncompleteCredentials = "@AppMessages.Err_IncompleteCredentials";
+    var Info_Connecting = "@AppMessages.Info_Connecting";
+    var System_SomethingWentWrong = "@AppMessages.System_SomethingWentWrong";
+    var System_ConnectionError = "@AppMessages.System_ConnectionError";
+</script>

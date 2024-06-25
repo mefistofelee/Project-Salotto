@@ -1,0 +1,11 @@
+@model Salotto.App.Models.MainViewModelBase
+@{
+    var copy = Model.Settings.General.Copyright;
+}
+
+<div class="p-3 text-end text-dark opacity8 shadow" style="background-color:white;">
+    <span>
+        &copy; @copy.Year
+        <a href="@copy.Url" class="text-decoration-none text-dark">@copy.Name</a>
+    </span>
+</div>

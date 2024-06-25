@@ -1,0 +1,16 @@
+
+//
+// Features to (consider) adding
+// 
+
+*) CSHTML various fix
+*) CSS+JS 
+2) MFA
+*) Demo page (sample form)
+*) Menu facilities
+*) Version .NET
+6) Email + recover password
+*) LIVE/BETA
+*) Intl
+*) warning
+

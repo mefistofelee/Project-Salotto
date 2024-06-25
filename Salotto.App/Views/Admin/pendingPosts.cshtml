@@ -1,0 +1,13 @@
+@using Salotto.App.Common.Extensions
+@using Salotto.Resources
+@using Salotto.App.Common.UI.Sidebar
+@model Salotto.App.Models.Admin.AdminIndexViewModel
+
+@{
+    Model.PageTitle = AppStrings.Title_PendingPosts;
+}
+
+@foreach (var post in Model.Posts)
+{
+    <partial name="pv_post" model="@post" />
+}

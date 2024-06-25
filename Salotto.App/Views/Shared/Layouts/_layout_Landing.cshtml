@@ -1,0 +1,48 @@
+@using Salotto.App.Common.Settings
+@model Salotto.App.Models.LandingViewModelBase
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <partial name="pv_x_metatags" />
+    <title>@Model.Settings.General.ProjectName</title>
+    <link rel="stylesheet" href="/css/lib/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/lib/ybq/ybq-defs.min.css" />
+    <link rel="stylesheet" href="/css/lib/ybq/ybq-core.min.css" />
+    <link rel="stylesheet" href="/css/lib/fa5pro.min.css" />
+
+    <script src="/js/lib/jquery.min.js"></script>
+    <script src="/js/lib/Ybq/ybq-core.min.js"></script>
+
+    @RenderSection("adhoc_css", required: false)
+
+    <!-- Core JS refs -->
+    <script src="/js/lib/jquery.min.js"></script>
+    <script src="/js/lib/bootstrap.bundle.min.js"></script>
+    <script src="/js/app-assets/tms-helpers.min.js"></script>
+    <script src="/js/lib/ybq/ybq-core.min.js"></script>
+    @RenderSection("adhoc_scripts_top", required: false)
+</head>
+
+<body  bg-image="/images/bk/cover-min.jpg">
+    <div class="container mt-4">
+        <div class="text-center mb-5">
+            <img src="/images/logos/tms-logo-h.png" class="my-2" width="300" />
+            <h6 class="text-uppercase">@Model.Settings.General.ApplicationDescription</h6>
+            <hr style="border-bottom: solid 1px #111" />
+            <div class="text-end">
+                <span class="tiny bold">@Model.Settings.General.Version</span>
+                <span class="tiny ms-2">@Model.Settings.General.BuildInfo</span>
+                <span class="ms-2 small badge bg-dark text-uppercase">@Model.Settings.Secrets.GetBackendModeForDisplay()</span>
+            </div>
+        </div>
+
+        @RenderBody()
+    </div>
+
+
+@RenderSection("adhoc_scripts_bottom", required: false)
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+@using Salotto.App.Common.Settings
+@model Salotto.App.Models.LandingViewModelBase
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <partial name="pv_x_metatags" />
+    <title>@Model.Settings.General.ProjectName</title>
+    <link href="/css/lib/bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/lib/fa5pro.min.css" rel="stylesheet" />
+    <link href="/css/lib/jquery-confirm.min.css" rel="stylesheet" />
+    <link href="/css/lib/ybq/ybq-defs.min.css" rel="stylesheet" />
+    @* <link href="/css/lib/ybq/ybq-core.min.css" rel="stylesheet" /> *@
+    <link href="/css/logico-style.min.css" rel="stylesheet" />
+
+    <script src="/js/lib/jquery.min.js"></script>
+    <script src="/js/lib/Ybq/ybq-core.min.js"></script>
+
+    
+    
+    @RenderSection("adhoc_css", required: false)
+
+    <!-- Core JS refs -->
+    <script src="/js/lib/jquery.min.js"></script>
+    <script src="/js/lib/bootstrap.bundle.min.js"></script>
+    <script src="/js/app-assets/tms-helpers.min.js"></script>
+    <script src="/js/lib/jquery-confirm.min.js"></script>
+    <script src="/js/lib/ybq/ybq-core.min.js"></script>
+    <script src="/js/lib/ybq/ybq-dialog.min.js"></script>
+
+    @RenderSection("adhoc_scripts_top", required: false)
+</head>
+
+<body style="background-color: #f8f8f8;">
+    <div class="container" style="margin-top:6rem">
+        <div class="text-center">
+        </div>
+        @RenderBody()
+    </div>
+
+
+@RenderSection("adhoc_scripts_bottom", required: false)
+    <div class="centered-div">
+        <div class="text-center mt-2">
+            <span class="tiny bold">@Model.Settings.General.Version</span>
+            <span class="tiny ms-2">@Model.Settings.General.BuildInfo</span>
+            @if (!Model.Settings.Secrets.IsLiveMode())
+            {
+                <span class="small badge-pill badge-danger text-uppercase">@Model.Settings.Secrets.GetBackendModeForDisplay()</span>
+            }
+        </div>
+    </div>
+</body>
+</html>

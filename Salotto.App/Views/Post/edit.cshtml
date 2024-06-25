@@ -1,0 +1,98 @@
+﻿@using Salotto.App.Common.Extensions
+@using Salotto.DomainModel.Activity
+@using Salotto.DomainModel.UserAccount
+@using Salotto.Resources
+@model Salotto.App.Models.Activities.PostViewModel
+
+@{
+    // da fare bene l'edit. non fa vedere la foto. però modifica tutto
+    Model.PageTitle = AppStrings.Label_Post;
+    var user = User.Logged();
+    var status = user.Role == SalottoRole.Standard ? PostStatus.Pending : PostStatus.Approved;
+    var isEdit = Model.Post.Id > 0;
+    var dnone = isEdit ? "d-none" : "";
+}
+
+<style>
+    .photo-upload {
+        width: 100 %;
+        height: 100 %;
+        border: dashed 1px black;
+        border-radius: 10px;
+        min-height: 200px;
+        align-content: center;
+        text-align: center;
+    }
+
+    .photo-upload:hover {
+        cursor: pointer;
+    }
+</style>
+
+<form autocomplete="off" action="/post/save" method="post" id="post-edit-form">
+    <hidden id="Id" value="@Model.Post.Id" />
+    <div class="card">
+
+        <div class="card-header">
+            @(Model.Post.Id > 0 ? AppStrings.Text_Edit : AppStrings.Text_New) @AppStrings.Label_Post
+        </div>
+
+        <div class="card-body">
+            <div class="d-flex">
+
+                <div style="width:50%" id="photo-div" class="p-3" onclick="document.getElementById('photo-input').click();">
+                    <div class="photo-upload" id="photo-upload" style="background-position:center; background-repeat:no-repeat">
+                        <i class="fas fa-plus to-hide"></i>
+                        <span style="opacity:.65;" class="to-hide">@AppStrings.Text_ClickToUpload</span>
+                        <input id="photo-input" type="file" class="d-none" name="file" />
+                    </div>
+                </div>
+                
+                <div style="width:50%">
+                    <h5>@AppStrings.Label_Description</h5>
+                    <textarea style="width:100%" name="Description">@Html.Raw(Model.Post.Description)</textarea>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="card-footer">
+            <button class="btn btn-primary bold" type="button" id="save">@AppMenu.Save</button>
+        </div>
+    </div>
+</form>
+
+<script>
+    if (@isEdit.ToString().ToLower()){
+        $(".to-hide").hide();
+        const imgDiv = document.getElementById('photo-upload');
+        imgDiv.style.backgroundImage = "@Model.Post.GetDataUrl()";
+    }
+</script>
+
+<script>
+    document.getElementById('photo-input').addEventListener('change', function (event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                const imgDiv = document.getElementById('photo-upload');
+                imgDiv.style.backgroundImage = `url(${e.target.result})`;
+            };
+            reader.readAsDataURL(file);
+            $(".to-hide").hide();
+        }
+    });
+</script>
+
+<script>
+    $("#save").click(function () {
+        Ybq.postForm("#post-edit-form", function (data) {
+            var response = JSON.parse(data);
+            Ybq.alert("SALOTTO | " + response.message, response.success, "", 5000)
+                .then(function () {
+                    Ybq.goto("/@User.Logged().Role/index");
+                });
+        });
+    });
+</script>

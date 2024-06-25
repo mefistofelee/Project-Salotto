@@ -1,0 +1,71 @@
+@using Salotto.App.Common.Settings
+@using Salotto.Resources
+@using Salotto.App.Common.Extensions
+@using Salotto.App.Common.UI.Sidebar
+@using System.Web
+@model Salotto.App.Models.MainViewModelBase
+
+@{
+    var logged = User.Logged();
+    Model.Sidebar = SidebarBuilder.ForUser(logged);
+}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <partial name="pv_x_metatags" />
+
+    <title>@Model.Settings.General.ProjectName</title>
+    <link href="/css/lib/bootstrap.min.css" rel="stylesheet" />
+    @* <link href="/css/lib/fa5pro.min.css" rel="stylesheet" /> *@
+    <link href="/css/lib/jquery-confirm.min.css" rel="stylesheet" />
+    <link href="/css/lib/ybq/ybq-defs.min.css" rel="stylesheet" />
+    <link href="/css/lib/ybq/ybq-core.min.css" rel="stylesheet" />
+    <link href="/css/app-template.min.css" rel="stylesheet" />
+    <link href="/css/app-assets/@AppSettings.AppName-extensions.min.css" rel="stylesheet" />
+    <link href="/css/app-assets/tables.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="//cdn.datatables.net/1.11.4/css/dataTables.bootstrap5.min.css" />
+    <link href="/css/logico-style.min.css" rel="stylesheet" />
+    @RenderSection("adhoc_css", required: false)
+
+    <!--Kendo jquery-->
+    <script src="/js/lib/jquery.min.js"></script>
+    <script src="/js/lib/bootstrap.bundle.min.js"></script>
+    <script src="/js/app-assets/tms-helpers.min.js"></script>
+    <script src="/js/lib/jquery-confirm.min.js"></script>
+    <script src="/js/lib/ybq/ybq-core.min.js"></script>
+    <script src="/js/lib/ybq/ybq-dialog.min.js"></script>
+    <script src="/js/lib/ybq/ybq-forms.min.js"></script>
+    <script src="https://kit.fontawesome.com/bf083db933.js" crossorigin="anonymous"></script>
+
+    <script src="//cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+    <script src="//cdn.datatables.net/1.11.4/js/dataTables.bootstrap5.min.js"></script>
+
+    @RenderSection("adhoc_scripts_top", required: false)
+</head>
+
+<body data-sidebar="dark" class="app-bg-body">
+
+    <div id="layout-wrapper">
+        <partial name="pv_x_topbar" />
+        <partial name="pv_x_sidebar" model="Model.Sidebar" />
+
+        <div class="main-content">
+            <div class="page-content">
+                <div class="container-fluid app-inner-content">
+                    @RenderBody()
+                </div>
+            </div>
+            <partial name="pv_x_footer" />
+        </div>
+    </div>
+
+<!-- Scripts -->
+<script src="~/js/lib/metismenu/metisMenu.min.js"></script>
+<script src="~/js/lib/node-waves/waves.min.js"></script>
+<script src="~/js/app-template.min.js"></script>
+
+@RenderSection("adhoc_scripts_bottom", required: false)
+
+</body>
+</html>

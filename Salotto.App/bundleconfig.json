@@ -1,0 +1,194 @@
+[
+  {
+    "outputFileName": "wwwroot/css/app-assets/caspio-login.min.css",
+    "inputFiles": [
+      "wwwroot/css/app-assets/caspio-login.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/css/app-assets/caspio-landing.min.css",
+    "inputFiles": [
+      "wwwroot/css/app-assets/caspio-landing.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/css/caspio-extensions.min.css",
+    "inputFiles": [
+      "wwwroot/css/caspio-extensions.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/css/caspio-root.min.css",
+    "inputFiles": [
+      "wwwroot/css/caspio-root.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/app-assets/caspio-login.min.js",
+    "inputFiles": [
+      "wwwroot/js/app-assets/caspio-login.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/lib/Ybq/ybq-core.min.js",
+    "inputFiles": [
+      "wwwroot/js/lib/Ybq/ybq-core.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/css/lib/icons.min.css",
+    "inputFiles": [
+      "wwwroot/css/lib/icons.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/lib/Ybq/ybq-forms.min.js",
+    "inputFiles": [
+      "wwwroot/js/lib/Ybq/ybq-forms.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/lib/Ybq/caspio-ybq-dialog.min.js",
+    "inputFiles": [
+      "wwwroot/js/lib/Ybq/caspio-ybq-dialog.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/app-assets/caspio-userprofile.min.js",
+    "inputFiles": [
+      "wwwroot/js/app-assets/caspio-userprofile.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/css/caspio-core.min.css",
+    "inputFiles": [
+      "wwwroot/css/caspio-core.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/css/app.min.css",
+    "inputFiles": [
+      "wwwroot/css/app.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/css/caspio-app.min.css",
+    "inputFiles": [
+      "wwwroot/css/caspio-app.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/lib/ybq/ybq-tables.min.js",
+    "inputFiles": [
+      "wwwroot/js/lib/ybq/ybq-tables.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/css/lib/typeahead.min.css",
+    "inputFiles": [
+      "wwwroot/css/lib/typeahead.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/app-assets/caspio-company.min.js",
+    "inputFiles": [
+      "wwwroot/js/app-assets/caspio-company.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/app-assets/caspio-account.min.js",
+    "inputFiles": [
+      "wwwroot/js/app-assets/caspio-account.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/lib/ybq/ditto-ybq-dialog.min.js",
+    "inputFiles": [
+      "wwwroot/js/lib/ybq/ditto-ybq-dialog.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/css/lib/Ybq/ybq-defs.min.css",
+    "inputFiles": [
+      "wwwroot/css/lib/Ybq/ybq-defs.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/css/lib/Ybq/ybq-core.min.css",
+    "inputFiles": [
+      "wwwroot/css/lib/Ybq/ybq-core.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/app-assets/tms-login.min.js",
+    "inputFiles": [
+      "wwwroot/js/app-assets/tms-login.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/app-template.min.js",
+    "inputFiles": [
+      "wwwroot/js/app-template.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/lib/ybq/ybq-dialog.min.js",
+    "inputFiles": [
+      "wwwroot/js/lib/ybq/ybq-dialog.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/lib/ybq/ybq-autocompleter.min.js",
+    "inputFiles": [
+      "wwwroot/js/lib/ybq/ybq-autocompleter.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/css/app-assets/tms-extensions.min.css",
+    "inputFiles": [
+      "wwwroot/css/app-assets/tms-extensions.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/css/app-template.min.css",
+    "inputFiles": [
+      "wwwroot/css/app-template.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/app-assets/tms-userprofile.min.js",
+    "inputFiles": [
+      "wwwroot/js/app-assets/tms-userprofile.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/css/lib/bootstrap.min.css",
+    "inputFiles": [
+      "wwwroot/css/lib/bootstrap.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/css/app-assets/tms-kendo.min.css",
+    "inputFiles": [
+      "wwwroot/css/app-assets/tms-kendo.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/app-assets/tms-helpers.min.js",
+    "inputFiles": [
+      "wwwroot/js/app-assets/tms-helpers.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/css/app-assets/sb-admin-2.min.css",
+    "inputFiles": [
+      "wwwroot/css/app-assets/sb-admin-2.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/css/logico-style.min.css",
+    "inputFiles": [
+      "wwwroot/css/logico-style.css"
+    ]
+  }
+]

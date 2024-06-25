@@ -1,0 +1,40 @@
+@using Salotto.App.Common.Extensions
+@using Salotto.App.Common.Settings
+@using Salotto.Resources
+@using Salotto.DomainModel.UserAccount
+
+@{
+    var user = User.Logged();
+}
+
+<div class="dropdown d-inline-block">
+    <button type="button" class="btn header-item waves-effect" id="logged-user-dropdown" data-bs-toggle="dropdown">
+        <div class="d-flex align-items-center">
+            <img src="@user.GetPhotoUrl()" alt="" id="lbl_photo"
+                 class="rounded-circle bordered"
+                 style="height:50px!important;width:50px!important;"/>
+            <div class="d-none d-xl-inline-block mx-3 fw-medium">
+                <div class="text-start line-compact-12" id="logged-user-name">@user</div>
+            </div>
+            <i class="fa fa-chevron-down d-none d-xl-inline-block"></i>
+        </div>
+    </button>
+    <div class="dropdown-menu dropdown-menu-end m-0 p-0" style="min-width: 300px;">
+        <!-- Menu -->
+        <a class="dropdown-item" href="/user/profile">
+            @* <i class="fal fa-fw fa-user-cog align-middle text-primary me-1"></i>  *@
+            <i class="fa-solid fa-user"></i>
+            <span class="align-middle">@AppMenu.ViewProfile</span>
+        </a>
+        <a class="dropdown-item" href="/logout">
+           @*  <i class="fal fa-fw fa-sign-out-alt align-middle text-primary me-1"></i>  *@
+            <i class="fa-solid fa-right-from-bracket"></i>
+            <span class="align-middle bold">@AppMenu.SignOut</span>
+        </a>
+        <div class="d-flex bg-dark text-light mt-1 p-2 justify-content-between align-items-center">
+            <div class="tiny opacity7">Runtime @Environment.Version</div>
+            <div class="tiny opacity7">@Model.Settings.General.Version - @Model.Settings.General.BuildInfo</div>
+            <div class="tiny text-warning">@Model.Settings.Secrets.GetDbMonikerForDisplay()</div>
+        </div>
+    </div>
+</div>

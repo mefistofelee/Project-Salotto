@@ -1,0 +1,72 @@
+@using Salotto.Resources
+@using Youbiquitous.Martlet.Core.Extensions
+@model Salotto.App.Models.Login.ResetPasswordViewModel
+
+@{
+    Layout = "/views/shared/layouts/_layout_Simple.cshtml";
+}
+
+@section adhoc_css {
+}
+
+@section adhoc_scripts_bottom {
+    <script src="~/js/lib/ybq/ybq-forms.min.js"></script>
+    <script src="~/js/lib/ybq/ybq-dialog.min.js"></script>
+}
+
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col-12 col-md-8 col-xl-6 p-5">
+            <div class="card">
+                <div class="card-body">
+                    <div class="text-center">
+                        <h3><i class="fa fa-lock fa-3x"></i></h3>
+                        <h2 class="text-center">@AppStrings.Label_SetNewPassword.Capitalize()</h2>
+                        <p>@AppStrings.Label_LinkExpired</p>
+                        <div class="card-body">
+                            <form id="resend-form" role="form" autocomplete="off" novalidate method="post" action="/account/recover">
+                                <hidden id="email" value="@Model.Email" />
+                                <button id="trigger-resend-pswd"
+                                        type="button"
+                                        class="btn btn-lg btn-primary">
+                                    @AppMenu.ResendLink
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer d-none d-sm-block">
+                    <div class="d-flex justify-content-end text-dark">
+                        <span>@AppStrings.Text_NeedHelp </span>&nbsp;
+                        <email to="@(Model.Settings.General.ContactEmail)">
+                            @AppStrings.Text_ContactUs
+                        </email>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $("#trigger-resend-pswd").click(function () {
+        var email = $.trim($("#email").val());
+        if (email.length === 0 || !Ybq.validateEmail(email)) {
+            //$("#message").html("@AppMessages.Err_ValidEmailRequired").hideAfter(3);
+            return;
+        }
+
+        Ybq.postForm("#resend-form",
+            function(data) {
+                var response = JSON.parse(data);
+                if (response.success) {
+                    Ybq.alert("@AppMessages.Info_Done", true)
+                        .then(function() {
+                           Ybq.gotoRelative("/");
+                        });
+                } else {
+                    Ybq.alert("DITTO|" + response.message);
+                }
+            });
+    });
+</script>

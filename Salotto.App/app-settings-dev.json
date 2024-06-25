@@ -1,0 +1,40 @@
+{
+  "Languages": [ "en-US", "it-IT", "es-ES" ],
+  "Run": {
+    "DevMode": true
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Warning"
+    }
+  },
+  "General": {
+    "ProjectName": "Salotto",
+    "ApplicationName": "WEB APP",
+    "ApplicationDescription": "Basic template for .NET application",
+    "Version": "v 1.0.0",
+    "BuildInfo": "April 1, 2024",
+    "ContactEmail": "lucianocornelio.dev@gmail.com",
+    "Copyright": {
+      "Name": "Luciano Cornelio",
+      "Year": "",
+      "Url": "https://www.linkedin.com/in/luciano-cornelio-116292216"
+    },
+    "DefaultCulture": "en-US",
+    "ForcedDateAsDdMmYy": "01/04/24"
+  },
+  "Secrets": {
+    "SalottoBackendMode": "local",
+    "SalottoConnectionStringLocal": "Data Source=(local); Integrated Security=True; Initial Catalog=Salotto;Trusted_Connection=True;TrustServerCertificate=True;",
+    "SalottoConnectionStringStaging": "Data Source=(local); Integrated Security=True; Initial Catalog=Salotto;Trusted_Connection=True;TrustServerCertificate=True;",
+    "SalottoConnectionStringLive": "Data Source=(local); Integrated Security=True; Initial Catalog=Salotto;Trusted_Connection=True;TrustServerCertificate=True;",
+    "MongoDbConnectionString": "mongodb+srv://logicowebapp:BVnYOtRP2J6OeyfP@cluster0.3oawftr.mongodb.net/?retryWrites=true&w=majority",
+    "MongoDbDatabaseName": "Salotto",
+    "EmailSettings": {
+      "SmtpServer": "smtp.gmail.com",
+      "SmtpPort": 587,
+      "UserName": "logico.sender@gmail.com",
+      "Password": "yckp bbak xszh dfhj"
+    }
+  }
+}

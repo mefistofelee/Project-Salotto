@@ -1,0 +1,41 @@
+@using Salotto.App.Common.Settings
+@model Salotto.App.Models.MainViewModelBase 
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <partial name="pv_x_metatags" />
+
+    <title>@Model.Title</title>
+
+    <!-- Core CSS refs -->
+    <link rel="stylesheet" href="~/css/lib/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/@AppSettings.AppName-print.min.css" />
+    <link rel="stylesheet" href="~/css/lib/Ybq/ybq-core.min.css" />
+    <link rel="stylesheet" href="~/css/lib/fa5pro.min.css" />
+
+    <!-- More specific CSS refs -->
+    @await RenderSectionAsync("adhoc_css", required: false)
+
+    <!-- Core JS refs -->
+    <script src="~/js/lib/jquery.min.js"></script>
+    <script src="~/js/lib/ybq/ybq-core.min.js"></script>
+
+    <!-- More specific JS refs -->
+    @await RenderSectionAsync("adhoc_scripts", required: false)
+</head>
+
+<body>
+    <partial name="pv_x_print_toolbar"/>
+
+    <div id="printable-area">
+        @RenderBody()
+    </div>
+
+</body>
+</html>

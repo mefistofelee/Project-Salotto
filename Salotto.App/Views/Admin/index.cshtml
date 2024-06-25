@@ -1,0 +1,18 @@
+@using Salotto.App.Common.Extensions
+@using Salotto.Resources
+@using Salotto.App.Common.UI.Sidebar
+@model Salotto.App.Models.Admin.AdminIndexViewModel
+
+@{
+    Model.PageTitle = AppMenu.Home;
+}
+
+<div class="d-flex" style="justify-content: center;">
+    <a class="btn btn-primary m-2" href="/post/edit">@AppStrings.Text_AddNew @AppStrings.Label_Post</a>
+    <a class="btn btn-primary m-2" href="/admin/pendingposts">@AppStrings.Title_PendingPosts: @Model.PendingPostsCount</a>
+</div>
+
+@foreach (var post in Model.Posts)
+{
+    <partial name="pv_post" model="@post" />
+}

@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Azure.Storage.Blobs" Version="12.19.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.1" />
+    <PackageReference Include="MongoDB.Bson" Version="2.23.1" />
+    <PackageReference Include="MongoDB.Driver" Version="2.23.1" />
+    <PackageReference Include="PoponGate" Version="1.1.1" />
+    <PackageReference Include="Youbiquitous.Martlet.Core" Version="1.5.5" />
+    <PackageReference Include="Youbiquitous.Martlet.Services" Version="1.0.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Salotto.DomainModel\Salotto.DomainModel.csproj" />
+    <ProjectReference Include="..\Salotto.Resources\Salotto.Resources.csproj" />
+    <ProjectReference Include="..\Salotto.Shared\Salotto.Shared.csproj" />
+  </ItemGroup>
+
+</Project>

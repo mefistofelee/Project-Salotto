@@ -1,0 +1,53 @@
+﻿@using Salotto.App.Common.Extensions
+@using Salotto.DomainModel.Activity
+@using Salotto.DomainModel.UserAccount
+@using Salotto.Resources
+@model Salotto.App.Models.Activities.EventViewModel
+
+@{
+    Model.PageTitle = AppStrings.Text_Event + " " + AppStrings.Text_Edit;
+}
+
+<div class="card">
+    <div class="card-header">
+        @(Model.Event.Id > 0 ? AppStrings.Text_Edit : AppStrings.Text_New) @AppStrings.Text_Event
+    </div>
+
+    <div class="card-body">
+        <form id="event-edit-form" autocomplete="off" method="post" action="/event/save">
+            <hidden id="Id" value="@Model.Event.Id"/>
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-floating">
+                        <input id="name" type="text" class="form-control" name="Name" value="@Model.Event.Name" />
+                        <label for="#name">@AppStrings.Label_Name</label>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-floating">
+                        <input id="description" type="text" class="form-control" name="Description" value="@Model.Event.Description" />
+                        <label for="#description">@AppStrings.Label_Description</label>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="card-footer">
+        <div class="text-center">
+            <button type="button" id="save" class="btn btn-primary">@AppMenu.Save</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    $("#save").click(function () {
+        Ybq.postForm("#event-edit-form", function (data) {
+            var response = JSON.parse(data);
+            Ybq.alert("SALOTTO | " + response.message, response.success, "", 5000)
+                .then(function () {
+                    Ybq.goto("/event/all");
+                });
+        });
+    });
+</script>

@@ -1,0 +1,46 @@
+﻿@using Salotto.App.Common.Extensions
+@using Salotto.DomainModel.Activity
+@using Salotto.DomainModel.UserAccount
+@using Salotto.Resources
+@model Salotto.App.Models.Activities.EventsViewModel
+
+@{
+    Model.PageTitle = AppStrings.Text_Events;
+    var userHasPermissions = User.Logged().Role == SalottoRole.Admin || User.Logged().Role == SalottoRole.System;
+}
+
+@if (userHasPermissions)
+{
+    <div class="text-center"><a class="btn btn-primary" href="/event/edit">@AppStrings.Text_AddNew @AppStrings.Text_Event</a></div>
+}
+
+@foreach (var e in Model.Events)
+{
+    <div class="card m-3">
+        <div class="card-header">@e.Name</div>
+        <div class="card-body">@e.Description</div>
+        <div class="card-footer">
+            @if (userHasPermissions)
+            {
+                <a class="btn btn-warning" href="/event/edit?id=@e.Id"><i class="fas fa-edit"></i></a>
+                <button class="btn btn-danger btn-delete" data-id="@e.Id"><i class="fas fa-trash"></i></button>
+                <a class="btn btn-primary" href="/edition/edit?eventId=@e.Id">@AppStrings.Text_New @AppMenu.Edition</a>
+            }
+            <a class="btn btn-primary" href="/edition/all?eventId=@e.Id">@AppStrings.Text_RelatedEditions</a>
+        </div>
+    </div>
+}
+
+<script>
+    $(".btn-delete").click(function () {
+        var id = $(this).data("id");
+        Ybq.post("/event/delete", {
+            id: id,
+        }, function (response) {
+            Ybq.alert("SALOTTO | " + response.message, response.success, "", 5000)
+                .then(function(){
+                    window.location.reload();
+                });
+        });
+    });
+</script>

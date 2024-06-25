@@ -1,0 +1,107 @@
+﻿@using Salotto.App.Common.Extensions
+@using Salotto.DomainModel.Activity
+@using Salotto.DomainModel.UserAccount
+@using Salotto.Resources
+@model Salotto.App.Models.Activities.EditionsViewModel
+
+@{
+    Model.PageTitle = Model.RelatedEvent == null ? AppStrings.Text_Editions : Model.RelatedEvent.Name + "'s " + AppStrings.Text_Editions;
+    var userHasPermissions = User.Logged().Role == SalottoRole.Admin || User.Logged().Role == SalottoRole.System;
+    var userId = User.Logged().UserId;
+}
+
+@if (userHasPermissions)
+{
+    <div class="text-center"><a class="btn btn-primary" href="/edition/edit">@AppStrings.Text_AddNew @AppMenu.Edition</a></div>
+}
+else
+{
+    <div class="text-center"><checkbox text="Only Joined" id="joined-checkbox" /></div>
+}
+
+@foreach (var e in Model.Editions)
+{
+    var alreadyJoined = Model.Bindings.Where(b => b.EditionId == e.Id).Count() > 0;
+    var joinedClass = alreadyJoined ? "" : "not-joined";
+
+    <div class="card m-3 @joinedClass">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-6">
+                    @e.Event.Name - @e.Name &nbsp;
+                    @if (alreadyJoined)
+                    {
+                        <i class="fas fa-check"></i>
+                    }
+                </div>
+                <div class="col-6 text-end">
+                    @AppStrings.Label_StartDate: @e.StartDate.ToString("dd/MM/yyyy") - @AppStrings.Label_EndDate: @e.EndDate.ToString("dd/MM/yyyy")
+                </div>
+            </div>
+        </div>
+        <div class="card-body">@e.Description</div>
+        <div class="card-footer">
+            @if (userHasPermissions)
+            {
+                <a class="btn btn-warning" href="/edition/edit?id=@e.Id"><i class="fas fa-edit"></i></a>
+                <button class="btn btn-danger btn-delete" data-id="@e.Id"><i class="fas fa-trash"></i></button>
+            }
+            else
+            {
+                if (alreadyJoined)
+                {
+                    <button class="btn btn-primary btn-remove" data-id="@e.Id">@AppStrings.Text_Remove</button>
+                }
+                else
+                {
+                    <button class="btn btn-primary btn-join" data-id="@e.Id">@AppStrings.Text_Join</button>
+                }
+            }
+        </div>
+    </div>
+}
+
+<script>
+    $(".btn-delete").click(function () {
+        var id = $(this).data("id");
+        Ybq.post("/edition/delete", {
+            id: id,
+        }, function (response) {
+            Ybq.alert("SALOTTO | " + response.message, response.success, "", 5000)
+                .then(function(){
+                    window.location.reload();
+                });
+        });
+    });
+
+    $(".btn-join").click(function () {
+        var id = $(this).data("id");
+        Ybq.post("/edition/join", {
+            id: id,
+        }, function (response) {
+            Ybq.alert("SALOTTO | " + response.message, response.success, "", 5000)
+                .then(function () {
+                    window.location.reload();
+                });
+        });
+    });
+
+    $(".btn-remove").click(function () {
+        var id = $(this).data("id");
+        Ybq.post("/edition/remove", {
+            id: id,
+        }, function (response) {
+            Ybq.alert("SALOTTO | " + response.message, response.success, "", 5000)
+                .then(function () {
+                    window.location.reload();
+                });
+        });
+    });
+
+    $("#joined-checkbox").change(function () {
+        if ($(this).is(":checked"))
+            $(".not-joined").hide();
+        else
+            $(".card").show();
+    });
+</script>

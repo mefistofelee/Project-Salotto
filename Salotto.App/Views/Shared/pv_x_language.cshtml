@@ -1,0 +1,30 @@
+@using System.Globalization
+@using Microsoft.AspNetCore.Localization
+@using Youbiquitous.Martlet.Core.Extensions
+@model IList<CultureInfo>
+
+@{
+    var culture = Context.Features.Get<IRequestCultureFeature>().RequestCulture.Culture.Name;
+    Model.ToList().RemoveAll(c => c.Name == culture);
+    var url = Context.Request.Path.Value;
+}
+
+<div class="dropdown d-inline-block language-switch">
+    <button type="button" class="btn header-item waves-effect"
+            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <img src="/images/flags/@(culture).jpg" class="bordered" height="16" />
+    </button>
+    <div class="dropdown-menu dropdown-menu-end">
+        @foreach (var ci in Model)
+        {
+            if (ci.Name == culture)
+            {
+                continue;
+            }
+            <a href="/lang/@(ci.Name)?r=@url" class="dropdown-item">
+                <img src="/images/flags/@(ci.Name).jpg" class="me-1 bordered" height="12" /> 
+                <span class="align-middle">@(ci.NativeName.SubstringTo(" (").Capitalize())</span>
+            </a>
+        }
+    </div>
+</div>

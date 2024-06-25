@@ -1,0 +1,14 @@
+﻿@using Salotto.App.Common.Extensions
+@using Salotto.DomainModel.Activity
+@using Salotto.DomainModel.UserAccount
+@using Salotto.Resources
+@model Salotto.App.Models.Activities.PostsViewModel
+
+@{
+    Model.PageTitle = AppMenu.MyPosts;
+}
+
+@foreach (var post in Model.Posts)
+{
+    <partial name="pv_post" model="@post" />
+}

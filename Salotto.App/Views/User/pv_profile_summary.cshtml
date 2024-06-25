@@ -1,0 +1,21 @@
+@using Salotto.Resources
+@using Youbiquitous.Martlet.Core.Extensions
+@model Salotto.DomainModel.UserAccount.User
+
+@{
+    var user = Model;
+}
+
+<div class="card">
+    <div class="card-body">
+        <div class="text-center">
+            <div>
+                <img src="/user/photo/@user.UserId" alt="" id="lbl_photo"
+                     class="rounded-circle img-thumbnail bordered"
+                     style="max-height:260px!important;max-width:260px!important;"
+                     fallback="/images/tms-avatar.png" />
+            </div>
+            <h5 class="mt-3 mb-1" id="lbl_dname">@user</h5>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,103 @@
+@using Salotto.App.Common.Settings
+@using Salotto.Resources
+@model Salotto.App.Models.LandingViewModelBase
+
+@{
+    Layout = "Layouts/_layout_Login";
+}
+
+
+@section adhoc_css
+{
+    <link href="~/css/app-assets/sb-admin-2.min.css" rel="stylesheet" />
+}
+
+@section adhoc_scripts_bottom
+{
+    <script src="~/js/app-assets/tms-login.min.js"></script>
+    <script src="~/js/lib/Ybq/ybq-forms.min.js"></script>
+
+}
+
+<!-- Outer Row -->
+<div class="row justify-content-center">
+    <div class="col-xl-10 col-lg-12 col-md-9">
+        <div class="card o-hidden border-0 shadow-lg mt-9 mb-1">
+            <div class="card-body p-0">
+                <!-- Nested Row within Card Body -->
+                <div class="row">
+                    <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                    <div class="col-lg-6">
+                        <div class="p-4">
+                            <div class="text-center mb-5">
+                                <div class="text-center text-uppercase mb-2">
+                                    <img src="/images/logos/logo-login.png" height="150" />
+                                </div>
+
+                            </div>
+                                <div class="text-center">
+                                    <h1 class="h4 text-gray-900 mb-4 text-center">@AppStrings.Text_ResetYourPassword</h1>
+                                </div>
+
+                                <form id="reset-form" action="/login/recover" method="post" class="user">
+                                    <div class="form-floating mb-3">
+                                        <input type="email" class="form-control" name="email"
+                                           id="login-username" aria-describedby="emailHelp">
+                                        <label for="login-username" id="login-username-label" class="text-required-label">@AppStrings.Label_Email</label>
+                                    </div>
+                                    <div class="text-center mb-3 mt-3">
+                                        <a id="send-trigger" class="btn btn-primary btn-login">
+                                            @AppStrings.Text_SendLink
+                                        </a>
+                                    </div>
+                                    <div class="text-center">
+                                        <a class="small text-dark" href="/login/login">@AppStrings.Text_Login</a>
+                                    </div>
+                                </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Bootstrap core JavaScript-->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="js/sb-admin-2.min.js"></script>
+
+
+<script>
+    var Err_IncompleteCredentials = "@AppMessages.Err_IncompleteCredentials";
+    var Info_Connecting = "@AppMessages.Info_Connecting";
+    var System_SomethingWentWrong = "@AppMessages.System_SomethingWentWrong";
+    var System_ConnectionError = "@AppMessages.System_ConnectionError";
+</script>
+
+
+<script>
+    $("#send-trigger").click(function () {
+        Ybq.postForm("#reset-form",
+            function (data) {
+                var response = JSON.parse(data);
+                Ybq.alert(response.message, response.success)
+                    .then(function () {
+                        var url = "/login/login";
+                        if (response.success) {
+                            Ybq.goto(url)
+                        }
+                        else {
+                            window.location.reload();
+                        }
+                    });
+            });
+    });
+</script>

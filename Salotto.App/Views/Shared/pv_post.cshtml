@@ -1,0 +1,110 @@
+﻿@using Salotto.App.Common.Extensions
+@using Salotto.DomainModel.Activity
+@using Salotto.DomainModel.UserAccount
+@using Salotto.Resources
+@model Salotto.DomainModel.Activity.Post
+
+@{
+    var userHasPermissions = User.Logged().Role != SalottoRole.Standard;
+    var userIsCreator = User.Logged().UserId == Model.CreatedByUserId;
+    var isPostPending = Model.Status == PostStatus.Pending;
+    var color =
+        Model.Status == PostStatus.Approved ? "green"
+        : Model.Status == PostStatus.Denied ? "red"
+        : Model.Status == PostStatus.Pending ? "yellow"
+        : "";
+}
+
+<div class="p-3 align-content-center text-center" data-status="@Model.Status">
+    <div class="card">
+        <div class="card-header">
+            <div class="row">
+
+                <!--INFO-->
+                <div class="col-6">
+                    <div class="d-flex">
+                        <div style="max-height:30px;max-width:30px">
+                            <!img style="max-height:30px;max-width:30px" src="@Model.CreatedByUser?.GetPhotoUrl()" alt="Base64 Image"/>
+                        </div>
+                        <div class="ms-3">
+                            @Model.CreatedByUser?.FirstName @Model.CreatedByUser?.LastName
+                        </div>
+                        <div class="ms-5 bold" style="color:@color">@Model.Status</div>
+                    </div>
+                </div>
+
+                <!--BUTTONS-->
+                <div class="col-6 text-end">
+                    @if (isPostPending)
+                    {
+                        if (userHasPermissions)
+                        {
+                            <button class="btn btn-primary btn-status" data-status="@PostStatus.Approved" data-id="@Model.Id">@AppStrings.Text_Approve <i class="fas fa-check"></i></button>
+                            <button class="btn btn-primary btn-status" data-status="@PostStatus.Denied" data-id="@Model.Id">@AppStrings.Text_Deny <i class="fa-solid fa-xmark"></i></button>
+                        }
+                    }
+                    else
+                    {
+                        if (userHasPermissions)
+                        {
+                            <button class="btn btn-primary btn-status" data-status="@PostStatus.Pending" data-id="@Model.Id">@AppStrings.Text_Pending</button>
+                        }
+                    }
+
+                    @if (userHasPermissions || userIsCreator)
+                    {
+                        <a class="btn btn-warning ms-5" href="/post/edit?id=@Model.Id">@AppStrings.Text_Edit</a>
+                        <button class="btn btn-danger btn-delete" data-id="@Model.Id">@AppStrings.Text_Delete</button>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <!--PHOTO-->
+        <div class="card-body">
+            <!img src="@Model.GetDataUrl()" alt="Base64 Image"/>
+        </div>
+
+        <!--DESCRIPTION-->
+        <div class="card-footer">
+            <div class="row">
+                <div class="col-6 bold text-start">@AppStrings.Label_Description:</div>
+                @if (Model.Status == PostStatus.Approved)
+                {
+                    <div class="col-6 text-end bold">@AppStrings.Text_ApprovedBy: @Model.ApprovedByUser?.ToString()</div>
+                }
+            </div>
+            <div class="text-start">@Model.Description</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(".btn-status").click(function () {
+        var id = $(this).data("id");
+        var status = $(this).data("status");
+
+        Ybq.post("/admin/changepoststatus", {
+            postId: id,
+            status: status,
+        }, function (response) {
+            Ybq.alert("SALOTTO | " + response.message, response.success, "", 5000)
+                .then(function () {
+                    window.location.reload();
+                });
+        });
+    });
+
+    $(".btn-delete").click(function () {
+        var id = $(this).data("id");
+
+        Ybq.post("/post/delete", {
+            id: id,
+        }, function (response) {
+            Ybq.alert("SALOTTO | " + response.message, response.success, "", 5000)
+                .then(function () {
+                    window.location.reload();
+                });
+        });
+    });
+</script>

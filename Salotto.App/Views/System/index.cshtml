@@ -1,0 +1,17 @@
+@using Salotto.Resources
+@using PoponGate.ExtensionMethods
+@using PoponGate.Repositories
+@model Salotto.App.Models.System.SystemIndexViewModel
+
+@{
+    Model.PageTitle = AppMenu.Home;
+}
+
+<div class="text-center">
+    <a class="btn btn-primary" href="/post/edit">@AppStrings.Text_AddNew @AppStrings.Label_Post</a>
+</div>
+
+@foreach (var post in Model.Posts)
+{
+    <partial name="pv_post" model="@post" />
+}

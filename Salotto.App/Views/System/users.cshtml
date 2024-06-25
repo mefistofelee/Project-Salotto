@@ -1,0 +1,76 @@
+@using Salotto.App.Common.Extensions
+@using Salotto.App.Common.UI.Sidebar
+@using Salotto.Resources
+@using System.Web
+@model Salotto.App.Models.UserAccount.UsersViewModel
+
+
+<div class="row card col-10 offset-1 mb-0">
+    <div class="row mb-3 p-3 pb-0">
+        <div class="col-6">
+            <h3 class="italic"><i class="fas fa-user"></i>&nbsp;@AppStrings.Text_Users</h3>
+        </div>
+        <div class="col-6 text-end">
+            <a class="btn btn-success" href="/user/edit">
+                <span>@AppStrings.Text_New</span>
+            </a>
+        </div>
+    </div>
+    <hr />
+    <div class="mb-0">
+        <table class="table table-bordered" id="tabella-utenti">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">@AppStrings.Label_Email</th>
+                    <th scope="col">@AppStrings.Label_Role</th>
+                    <th scope="col">@AppStrings.Label_Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var user in Model.Users)
+                {
+                    <tr>
+                        <th scope="row">@user.UserId</th>
+                        <td>@user.Email</td>
+                        <td>@user.Role</td>
+                        <td class="text-end">
+                            <a class="btn btn-sm btn-warning" href="/user/edit/@user.UserId"><i class="fas fa-edit"></i></a>
+                            <a class="btn btn-sm btn-danger delete" data-id="@user.UserId"><i class="fas fa-trash-alt"></i></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    $(document).on('click', '.delete', function () {
+         var id = $(this).data("id");
+            Ybq.confirm("@AppMessages.Msg_DeleteConfirm", "red", 0)
+                .then(function () {
+                    var url = "/user/delete";
+                    Ybq.post(url,
+                        {
+                            id: id
+                        },
+                        function (response) {
+                            Ybq.alert(response.message, response.success, false, 0)
+                                .then(function () {
+                                    window.location.reload();
+                                });
+                        });
+                });
+    });
+    $(document).ready(function() {
+        var datatable = $('#tabella-utenti').DataTable();
+    });
+</script>
+
+
+
+
+
+
+

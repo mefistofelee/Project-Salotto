@@ -1,0 +1,52 @@
+@using Salotto.App.Common.Settings
+@model Salotto.App.Models.SimpleViewModelBase
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <partial name="pv_x_metatags" />
+
+    <title>@Model.Settings.General.ProjectName</title>
+
+    <!-- Core CSS refs -->
+    <link rel="stylesheet" href="/css/lib/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/lib/fa5pro.min.css" />
+    <link rel="stylesheet" href="/css/lib/jquery-confirm.min.css" />
+    <link rel="stylesheet" href="/css/app-template.min.css" />
+    <link rel="stylesheet" href="/css/lib/Ybq/ybq-core.min.css" />
+
+    <!-- More specific CSS refs -->
+    @await RenderSectionAsync("adhoc_css", required: false)
+
+    <!-- Core JS refs -->
+    <script src="/js/lib/jquery.min.js"></script>
+    <script src="/js/lib/bootstrap.bundle.min.js"></script>
+    <script src="/js/lib/jquery-confirm.min.js"></script>
+    <script src="/js/lib/ybq/ybq-core.min.js"></script>
+
+    <!-- More specific JS refs -->
+    @await RenderSectionAsync("adhoc_scripts_top", required: false)
+</head>
+
+<body id="page-top" class="bg-light">
+<nav class="mb-5">
+    <a class="d-flex align-items-center bg-dark justify-content-center" style="text-decoration: none;" href="/">
+        <div class="p-3 whiten">
+            <img src="/images/logos/tms-logo-h.png" class="" style="width: 120px;" />
+        </div>
+    </a>
+</nav>
+
+<div id="wrapper">
+    <div id="content-wrapper" class="d-flex flex-column">
+        <div class="container-fluid bg-light" >
+            @RenderBody()
+        </div>
+    </div>
+
+    @await RenderSectionAsync("adhoc_scripts_bottom", required: false)
+</div>
+</body>
+</html>

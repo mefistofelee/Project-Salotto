@@ -1,0 +1,861 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Admin" xml:space="preserve">
+    <value>Admin</value>
+  </data>
+  <data name="EmailNotSent" xml:space="preserve">
+    <value>Email not sent</value>
+  </data>
+  <data name="Label_About" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="Label_Accommodation" xml:space="preserve">
+    <value>Accommodation</value>
+  </data>
+  <data name="Label_Account" xml:space="preserve">
+    <value>Account</value>
+  </data>
+  <data name="Label_AccountName" xml:space="preserve">
+    <value>Account Name</value>
+  </data>
+  <data name="Label_Accreditation" xml:space="preserve">
+    <value>Accreditation</value>
+  </data>
+  <data name="Label_AccreditationActive" xml:space="preserve">
+    <value>Accreditation Active</value>
+  </data>
+  <data name="Label_AccreditationDays" xml:space="preserve">
+    <value>Accreditation Days</value>
+  </data>
+  <data name="Label_Actions" xml:space="preserve">
+    <value>Actions</value>
+  </data>
+  <data name="Label_Address" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="Label_Address1" xml:space="preserve">
+    <value>Address Line 1</value>
+  </data>
+  <data name="Label_Address2" xml:space="preserve">
+    <value>Address 2</value>
+  </data>
+  <data name="Label_AtpUnoId" xml:space="preserve">
+    <value>ATP Uno ID</value>
+  </data>
+  <data name="Label_AuthBy" xml:space="preserve">
+    <value>Auth By</value>
+  </data>
+  <data name="Label_BadgeRoleCustomText" xml:space="preserve">
+    <value>Badge Role Custom Text</value>
+  </data>
+  <data name="Label_BadgeRoleGoup" xml:space="preserve">
+    <value>Badge Role Group</value>
+  </data>
+  <data name="Label_BadgeRoleGroup" xml:space="preserve">
+    <value>Badge role group</value>
+  </data>
+  <data name="Label_BadgeStyle" xml:space="preserve">
+    <value>Badge Style</value>
+  </data>
+  <data name="Label_BadgeType" xml:space="preserve">
+    <value>Badge Type</value>
+  </data>
+  <data name="Label_BallBoys" xml:space="preserve">
+    <value>BallBoys</value>
+  </data>
+  <data name="Label_BirthCity" xml:space="preserve">
+    <value>Birth City</value>
+  </data>
+  <data name="Label_BirthCountry" xml:space="preserve">
+    <value>Birth Country</value>
+  </data>
+  <data name="Label_BirthCountryCode" xml:space="preserve">
+    <value>Birth Country Code</value>
+  </data>
+  <data name="Label_BirthDate" xml:space="preserve">
+    <value>BirthDate</value>
+  </data>
+  <data name="Label_BirthProvince" xml:space="preserve">
+    <value>Birth Province</value>
+  </data>
+  <data name="Label_BlacklistActive" xml:space="preserve">
+    <value>Blacklist Active</value>
+  </data>
+  <data name="Label_Blacklisted" xml:space="preserve">
+    <value>Blacklisted?</value>
+  </data>
+  <data name="Label_Capacity" xml:space="preserve">
+    <value>Capacity</value>
+  </data>
+  <data name="Label_Category" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="Label_Circuit" xml:space="preserve">
+    <value>Circuit</value>
+  </data>
+  <data name="Label_City" xml:space="preserve">
+    <value>City</value>
+  </data>
+  <data name="Label_Code" xml:space="preserve">
+    <value>Code</value>
+  </data>
+  <data name="Label_Color" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="Label_Company" xml:space="preserve">
+    <value>Team</value>
+  </data>
+  <data name="Label_Connection" xml:space="preserve">
+    <value>Connection</value>
+  </data>
+  <data name="Label_ContactGroup" xml:space="preserve">
+    <value>Contact Group</value>
+  </data>
+  <data name="Label_ContactName" xml:space="preserve">
+    <value>Contact Name</value>
+  </data>
+  <data name="Label_ContactSource" xml:space="preserve">
+    <value>Contact Source</value>
+  </data>
+  <data name="Label_CorintoId" xml:space="preserve">
+    <value>Corinto ID</value>
+  </data>
+  <data name="Label_Country" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="Label_DailyAcccreditation" xml:space="preserve">
+    <value>Daily Accreditation</value>
+  </data>
+  <data name="Label_Default" xml:space="preserve">
+    <value>Standard</value>
+  </data>
+  <data name="Label_DefaultRun" xml:space="preserve">
+    <value>Default Run</value>
+  </data>
+  <data name="Label_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Label_Details" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="Label_DisplayEndDate" xml:space="preserve">
+    <value>Display End Date</value>
+  </data>
+  <data name="Label_DisplayName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Label_DisplayStartDate" xml:space="preserve">
+    <value>Display Start Date</value>
+  </data>
+  <data name="Label_Document" xml:space="preserve">
+    <value>Document</value>
+  </data>
+  <data name="Label_DocumentNo" xml:space="preserve">
+    <value>Document number</value>
+  </data>
+  <data name="Label_DocumentScan" xml:space="preserve">
+    <value>Document scan</value>
+  </data>
+  <data name="Label_DocumentStatus" xml:space="preserve">
+    <value>Document status</value>
+  </data>
+  <data name="Label_DocumentType" xml:space="preserve">
+    <value>Document type</value>
+  </data>
+  <data name="Label_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Label_EmailConfirmed" xml:space="preserve">
+    <value>Email confirmed</value>
+  </data>
+  <data name="Label_EndDate" xml:space="preserve">
+    <value>End Date</value>
+  </data>
+  <data name="Label_FaxPhone" xml:space="preserve">
+    <value>Fax Phone</value>
+  </data>
+  <data name="Label_FirstName" xml:space="preserve">
+    <value>First name</value>
+  </data>
+  <data name="Label_FirstName2" xml:space="preserve">
+    <value>First Name 2</value>
+  </data>
+  <data name="Label_FormPassword" xml:space="preserve">
+    <value>Form Password</value>
+  </data>
+  <data name="Label_FrontendUrl" xml:space="preserve">
+    <value>Frontend Url</value>
+  </data>
+  <data name="Label_Gender" xml:space="preserve">
+    <value>Gender</value>
+  </data>
+  <data name="Label_Headshot" xml:space="preserve">
+    <value>Headshot</value>
+  </data>
+  <data name="Label_Id" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="Label_Individual" xml:space="preserve">
+    <value>Individual account</value>
+  </data>
+  <data name="Label_Information" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="Label_IsaPlayer" xml:space="preserve">
+    <value>Is a player</value>
+  </data>
+  <data name="Label_JobPosition" xml:space="preserve">
+    <value>Job Position</value>
+  </data>
+  <data name="Label_JollyField1" xml:space="preserve">
+    <value>JollyField1</value>
+  </data>
+  <data name="Label_JollyField2" xml:space="preserve">
+    <value>JollyField2</value>
+  </data>
+  <data name="Label_JollyQuestion1" xml:space="preserve">
+    <value>JollyQuestion1</value>
+  </data>
+  <data name="Label_JollyQuestion2" xml:space="preserve">
+    <value>JollyQuestion2</value>
+  </data>
+  <data name="Label_LastName" xml:space="preserve">
+    <value>Last name</value>
+  </data>
+  <data name="Label_LastName2" xml:space="preserve">
+    <value>Last Name 2</value>
+  </data>
+  <data name="Label_LatestUpdate" xml:space="preserve">
+    <value>Last update</value>
+  </data>
+  <data name="Label_Latitude" xml:space="preserve">
+    <value>Latitude</value>
+  </data>
+  <data name="Label_Line" xml:space="preserve">
+    <value>Line</value>
+  </data>
+  <data name="Label_LinkExpired" xml:space="preserve">
+    <value>The link is no longer valid</value>
+  </data>
+  <data name="Label_Location" xml:space="preserve">
+    <value>Location</value>
+  </data>
+  <data name="Label_Locked" xml:space="preserve">
+    <value>Locked</value>
+  </data>
+  <data name="Label_LockoutEndDateUtc" xml:space="preserve">
+    <value>LockoutEndDateUtc</value>
+  </data>
+  <data name="Label_Logo" xml:space="preserve">
+    <value>Logo</value>
+  </data>
+  <data name="Label_Longitude" xml:space="preserve">
+    <value>Longitude</value>
+  </data>
+  <data name="Label_LuxorId" xml:space="preserve">
+    <value>Luxor ID</value>
+  </data>
+  <data name="Label_Media" xml:space="preserve">
+    <value>Media</value>
+  </data>
+  <data name="Label_Mobile" xml:space="preserve">
+    <value>Mobile</value>
+  </data>
+  <data name="Label_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Label_NewPassword" xml:space="preserve">
+    <value>New password</value>
+  </data>
+  <data name="Label_Notes" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="Label_NotSpecified" xml:space="preserve">
+    <value>Not specified</value>
+  </data>
+  <data name="Label_NumberOfDoses" xml:space="preserve">
+    <value>Number of doses</value>
+  </data>
+  <data name="Label_OldPassword" xml:space="preserve">
+    <value>Old password</value>
+  </data>
+  <data name="Label_Organization" xml:space="preserve">
+    <value>Organization</value>
+  </data>
+  <data name="Label_Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="Label_PasswordReset" xml:space="preserve">
+    <value>Password reset</value>
+  </data>
+  <data name="Label_Permissions" xml:space="preserve">
+    <value>Permissions</value>
+  </data>
+  <data name="Label_Personal" xml:space="preserve">
+    <value>Personal</value>
+  </data>
+  <data name="Label_Phone" xml:space="preserve">
+    <value>Phone</value>
+  </data>
+  <data name="Label_Phone1" xml:space="preserve">
+    <value>Phone 1</value>
+  </data>
+  <data name="Label_Phone2" xml:space="preserve">
+    <value>Phone 2</value>
+  </data>
+  <data name="Label_PlayersActive" xml:space="preserve">
+    <value>Players Active</value>
+  </data>
+  <data name="Label_PleaseChoose" xml:space="preserve">
+    <value>Please choose</value>
+  </data>
+  <data name="Label_POSActive" xml:space="preserve">
+    <value>POS Active</value>
+  </data>
+  <data name="Label_Post" xml:space="preserve">
+    <value>Post</value>
+  </data>
+  <data name="Label_PostalCode" xml:space="preserve">
+    <value>Postal Code</value>
+  </data>
+  <data name="Label_PreferNotToSay" xml:space="preserve">
+    <value>Prefer not to say</value>
+  </data>
+  <data name="Label_PreferredContactMethod" xml:space="preserve">
+    <value>Preferred Contact Method</value>
+  </data>
+  <data name="Label_ProfileProperties" xml:space="preserve">
+    <value>Profile properties</value>
+  </data>
+  <data name="Label_ProofOfVaccination" xml:space="preserve">
+    <value>Proof of vaccination</value>
+  </data>
+  <data name="Label_PSTEnabled" xml:space="preserve">
+    <value>PST Enabled</value>
+  </data>
+  <data name="Label_RAW" xml:space="preserve">
+    <value>RAW</value>
+  </data>
+  <data name="Label_Ready" xml:space="preserve">
+    <value>Ready</value>
+  </data>
+  <data name="Label_RecoverPassword" xml:space="preserve">
+    <value>Recover password</value>
+  </data>
+  <data name="Label_RefPerson" xml:space="preserve">
+    <value>Ref. Person</value>
+  </data>
+  <data name="Label_RelatedAccounts" xml:space="preserve">
+    <value>Related accounts</value>
+  </data>
+  <data name="Label_RepeatPassword" xml:space="preserve">
+    <value>Repeat password</value>
+  </data>
+  <data name="Label_Rfid" xml:space="preserve">
+    <value>Rfid</value>
+  </data>
+  <data name="Label_RM" xml:space="preserve">
+    <value>RM</value>
+  </data>
+  <data name="Label_Role" xml:space="preserve">
+    <value>Role</value>
+  </data>
+  <data name="Label_RPS" xml:space="preserve">
+    <value>RPS</value>
+  </data>
+  <data name="Label_RS" xml:space="preserve">
+    <value>RS</value>
+  </data>
+  <data name="Label_Select" xml:space="preserve">
+    <value>Select</value>
+  </data>
+  <data name="Label_SetNewPassword" xml:space="preserve">
+    <value>Set new password</value>
+  </data>
+  <data name="Label_StartDate" xml:space="preserve">
+    <value>Start Date</value>
+  </data>
+  <data name="Label_State" xml:space="preserve">
+    <value>State</value>
+  </data>
+  <data name="Label_Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Label_Test" xml:space="preserve">
+    <value>Test</value>
+  </data>
+  <data name="Label_Timezone" xml:space="preserve">
+    <value>Timezone</value>
+  </data>
+  <data name="Label_Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="Label_Tournament" xml:space="preserve">
+    <value>Tournament</value>
+  </data>
+  <data name="Label_Transportation" xml:space="preserve">
+    <value>Transportation</value>
+  </data>
+  <data name="Label_Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="Label_Umpires" xml:space="preserve">
+    <value>Umpires</value>
+  </data>
+  <data name="Label_Unk" xml:space="preserve">
+    <value>Unknown</value>
+  </data>
+  <data name="Label_URL" xml:space="preserve">
+    <value>URL</value>
+  </data>
+  <data name="Label_UserId" xml:space="preserve">
+    <value>User ID</value>
+  </data>
+  <data name="Label_UserName" xml:space="preserve">
+    <value>User name</value>
+  </data>
+  <data name="Label_UserProperties" xml:space="preserve">
+    <value>User properties</value>
+  </data>
+  <data name="Label_UseSeals" xml:space="preserve">
+    <value>Use Seals</value>
+  </data>
+  <data name="Label_Vat" xml:space="preserve">
+    <value>Vat</value>
+  </data>
+  <data name="Label_Venue" xml:space="preserve">
+    <value>Venue</value>
+  </data>
+  <data name="Label_Volunteers" xml:space="preserve">
+    <value>Volunteers</value>
+  </data>
+  <data name="Label_Welcome" xml:space="preserve">
+    <value>Welcome</value>
+  </data>
+  <data name="Label_WtaUnoId" xml:space="preserve">
+    <value>WTA Uno ID</value>
+  </data>
+  <data name="Label_Year" xml:space="preserve">
+    <value>Year</value>
+  </data>
+  <data name="Photos" xml:space="preserve">
+    <value>Photos</value>
+  </data>
+  <data name="Placeholder_ChangePassword" xml:space="preserve">
+    <value>Enter your new password</value>
+  </data>
+  <data name="Placeholder_EmailResetPassword" xml:space="preserve">
+    <value>Let us know where you wish to receive the link to reset your password</value>
+  </data>
+  <data name="Placeholder_Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="Placeholder_SearchFor" xml:space="preserve">
+    <value>She who searches, finds...</value>
+  </data>
+  <data name="Placeholder_UserName" xml:space="preserve">
+    <value>User name</value>
+  </data>
+  <data name="System" xml:space="preserve">
+    <value>System</value>
+  </data>
+  <data name="System_InfoNotAvailable" xml:space="preserve">
+    <value>Info not available</value>
+  </data>
+  <data name="Text_Accounts" xml:space="preserve">
+    <value>accounts</value>
+  </data>
+  <data name="Text_Active" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="Text_Activities" xml:space="preserve">
+    <value>Activities</value>
+  </data>
+  <data name="Text_AdditionalInfo" xml:space="preserve">
+    <value>Additional Info</value>
+  </data>
+  <data name="Text_AddNew" xml:space="preserve">
+    <value>Add New</value>
+  </data>
+  <data name="Text_AddressInformation" xml:space="preserve">
+    <value>Address Information</value>
+  </data>
+  <data name="Text_AdminTrivia" xml:space="preserve">
+    <value>Admin tasks</value>
+  </data>
+  <data name="Text_Ago" xml:space="preserve">
+    <value>ago</value>
+  </data>
+  <data name="Text_Approve" xml:space="preserve">
+    <value>Approve</value>
+  </data>
+  <data name="Text_ApprovedBy" xml:space="preserve">
+    <value>Approved by</value>
+  </data>
+  <data name="Text_AreaOverrule" xml:space="preserve">
+    <value>Area Overrule</value>
+  </data>
+  <data name="Text_AreYouTryingToDeleteThis" xml:space="preserve">
+    <value>are you trying to &lt;b&gt;delete&lt;/b&gt; this</value>
+  </data>
+  <data name="Text_ATP" xml:space="preserve">
+    <value>ATP</value>
+  </data>
+  <data name="Text_BadgePreview" xml:space="preserve">
+    <value>Badge Preview</value>
+  </data>
+  <data name="Text_BasicInformation" xml:space="preserve">
+    <value>Basic Information</value>
+  </data>
+  <data name="Text_By" xml:space="preserve">
+    <value>by</value>
+  </data>
+  <data name="Text_ChooseAnOption" xml:space="preserve">
+    <value>Choose an option</value>
+  </data>
+  <data name="Text_ClickToUpload" xml:space="preserve">
+    <value>Click to upload</value>
+  </data>
+  <data name="Text_Comments" xml:space="preserve">
+    <value>Comments</value>
+  </data>
+  <data name="Text_Company" xml:space="preserve">
+    <value>team</value>
+  </data>
+  <data name="Text_ContactGroups" xml:space="preserve">
+    <value>Contact Groups</value>
+  </data>
+  <data name="Text_ContactsBySource" xml:space="preserve">
+    <value>Contacts by source</value>
+  </data>
+  <data name="Text_ContactUs" xml:space="preserve">
+    <value>Contact us</value>
+  </data>
+  <data name="Text_Continue" xml:space="preserve">
+    <value>Continue</value>
+  </data>
+  <data name="Text_CraftedWith" xml:space="preserve">
+    <value>Crafted with</value>
+  </data>
+  <data name="Text_Create" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="Text_CredentialsByStatus" xml:space="preserve">
+    <value>Credentials by status</value>
+  </data>
+  <data name="Text_CurrentRun" xml:space="preserve">
+    <value>Current Run</value>
+  </data>
+  <data name="Text_Dashboard" xml:space="preserve">
+    <value>Dashboard</value>
+  </data>
+  <data name="Text_Day" xml:space="preserve">
+    <value>day</value>
+  </data>
+  <data name="Text_DayPlural" xml:space="preserve">
+    <value>days</value>
+  </data>
+  <data name="Text_Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Text_Deleted" xml:space="preserve">
+    <value>Deleted</value>
+  </data>
+  <data name="Text_Deny" xml:space="preserve">
+    <value>Deny</value>
+  </data>
+  <data name="Text_DevelopedBy" xml:space="preserve">
+    <value>developed by Crionet</value>
+  </data>
+  <data name="Text_Documentation" xml:space="preserve">
+    <value>Documentation</value>
+  </data>
+  <data name="Text_Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Text_Editions" xml:space="preserve">
+    <value>Editions</value>
+  </data>
+  <data name="Text_EmailNotSent" xml:space="preserve">
+    <value>There was an error during the email sending process</value>
+  </data>
+  <data name="Text_EmailTemplates" xml:space="preserve">
+    <value>Email Templates</value>
+  </data>
+  <data name="Text_Event" xml:space="preserve">
+    <value>Event</value>
+  </data>
+  <data name="Text_Events" xml:space="preserve">
+    <value>Events</value>
+  </data>
+  <data name="Text_EventsByActivity" xml:space="preserve">
+    <value>Events by activity</value>
+  </data>
+  <data name="Text_ExternalInformation" xml:space="preserve">
+    <value>External Systems Information</value>
+  </data>
+  <data name="Text_ForgotPassword" xml:space="preserve">
+    <value>Forgot password?</value>
+  </data>
+  <data name="Text_General" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="Text_GoToCredential" xml:space="preserve">
+    <value>Go to credential</value>
+  </data>
+  <data name="Text_Hi" xml:space="preserve">
+    <value>Hi</value>
+  </data>
+  <data name="Text_Join" xml:space="preserve">
+    <value>Join</value>
+  </data>
+  <data name="Text_LandscapeLogo" xml:space="preserve">
+    <value>Logo is preferably a landscape image</value>
+  </data>
+  <data name="Text_LinkSent" xml:space="preserve">
+    <value>A link has been sent to your email to reset your password</value>
+  </data>
+  <data name="Text_LocalOrExternalUrl" xml:space="preserve">
+    <value>Local or external URL</value>
+  </data>
+  <data name="Text_Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="Text_Medical" xml:space="preserve">
+    <value>Medical</value>
+  </data>
+  <data name="Text_NA" xml:space="preserve">
+    <value>N/A</value>
+  </data>
+  <data name="Text_NeedHelp" xml:space="preserve">
+    <value>Need help?</value>
+  </data>
+  <data name="Text_New" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="Text_NotSet" xml:space="preserve">
+    <value>Not set</value>
+  </data>
+  <data name="Text_Pending" xml:space="preserve">
+    <value>Pending</value>
+  </data>
+  <data name="Text_Photo" xml:space="preserve">
+    <value>Photo</value>
+  </data>
+  <data name="Text_PrintedTimes" xml:space="preserve">
+    <value>Printed Times</value>
+  </data>
+  <data name="Text_ProcessInformation" xml:space="preserve">
+    <value>Process Information</value>
+  </data>
+  <data name="Text_Profile" xml:space="preserve">
+    <value>Profile</value>
+  </data>
+  <data name="Text_PublicPortalOptions" xml:space="preserve">
+    <value>Public Portal Options</value>
+  </data>
+  <data name="Text_RelatedEditions" xml:space="preserve">
+    <value>Related Editions</value>
+  </data>
+  <data name="Text_Remove" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="Text_ResetYourPassword" xml:space="preserve">
+    <value>Reset your password</value>
+  </data>
+  <data name="Text_RFALastUpdate" xml:space="preserve">
+    <value>RFA Last Update on</value>
+  </data>
+  <data name="Text_RFCLastUpdate" xml:space="preserve">
+    <value>RFC Last Update on</value>
+  </data>
+  <data name="Text_RFTLastUpdate" xml:space="preserve">
+    <value>RFT Last Update on</value>
+  </data>
+  <data name="Text_Roles" xml:space="preserve">
+    <value>Roles</value>
+  </data>
+  <data name="Text_RunByCountry" xml:space="preserve">
+    <value>Run by country</value>
+  </data>
+  <data name="Text_Runs" xml:space="preserve">
+    <value>Runs</value>
+  </data>
+  <data name="Text_Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="Text_SearchFor" xml:space="preserve">
+    <value>Search for</value>
+  </data>
+  <data name="Text_SendLink" xml:space="preserve">
+    <value>Send Link</value>
+  </data>
+  <data name="Text_SetPassword" xml:space="preserve">
+    <value>Set Password</value>
+  </data>
+  <data name="Text_SetYourPassword" xml:space="preserve">
+    <value>set your password</value>
+  </data>
+  <data name="Text_SigninToContinue" xml:space="preserve">
+    <value>Sign in to continue to</value>
+  </data>
+  <data name="Text_Source" xml:space="preserve">
+    <value>Source</value>
+  </data>
+  <data name="Text_SwitchRun" xml:space="preserve">
+    <value>Switch Run</value>
+  </data>
+  <data name="Text_Tenant" xml:space="preserve">
+    <value>Tenant</value>
+  </data>
+  <data name="Text_Tenants" xml:space="preserve">
+    <value>Tenants</value>
+  </data>
+  <data name="Text_Today" xml:space="preserve">
+    <value>today</value>
+  </data>
+  <data name="Text_Tournaments" xml:space="preserve">
+    <value>Tournaments</value>
+  </data>
+  <data name="Text_User" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="Text_Users" xml:space="preserve">
+    <value>Users</value>
+  </data>
+  <data name="Text_ViewFullList" xml:space="preserve">
+    <value>View full list</value>
+  </data>
+  <data name="Text_WelcomeBack" xml:space="preserve">
+    <value>Welcome back to</value>
+  </data>
+  <data name="Text_WTA" xml:space="preserve">
+    <value>WTA</value>
+  </data>
+  <data name="Text_Yesterday" xml:space="preserve">
+    <value>yesterday</value>
+  </data>
+  <data name="Title_PendingPosts" xml:space="preserve">
+    <value>Pending posts</value>
+  </data>
+  <data name="UsersByRole" xml:space="preserve">
+    <value>Users By Role</value>
+  </data>
+</root>

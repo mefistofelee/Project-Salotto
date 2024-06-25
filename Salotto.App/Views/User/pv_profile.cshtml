@@ -1,0 +1,75 @@
+@using Salotto.Resources
+@model Salotto.App.Models.Login.UserViewModel
+
+@{
+    var user = Model.RelatedUser;
+}
+
+<form id="profile-form" autocomplete="off" method="post" action="/user/saveprofile">
+    <hidden id="UserId" value="@user.UserId" autocomplete="off"></hidden>
+    <div class="row mt-4">
+        <div class="col-xl-6">
+            <div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control text-capitalize" id="fn" name="FirstName"
+                           autofocus
+                           autocomplete="off"
+                           placeholder=" "
+                           value="@user.FirstName">
+                    <label for="fn">@AppStrings.Label_FirstName</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control text-capitalize" id="ln" name="LastName"
+                           placeholder=" "
+                           autocomplete="off"
+                           value="@user.LastName">
+                    <label for="ln">@AppStrings.Label_LastName</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control text-lowercase" id="em" name="Email"
+                           placeholder=" "
+                           autocomplete="off"
+                           value="@user.Email">
+                    <label for="em">@AppStrings.Label_Email</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-6">
+            <div class="text-center bg-sidebar p-1">
+                <h5 class="bold text-white">@AppStrings.Label_Headshot</h5>
+            </div>
+            <label for="headshot">@AppStrings.Label_Headshot</label>
+            <fileupload id="headshot"
+                        accept=".jpeg,.jpg,.png"
+                        url="/user/photo/@user.UserId"
+                        placeholder="<i class='fal fa-5x text-muted fa-portrait'></i>" />           
+            <div id="message-profile" class="text-center bold text-danger mt-3"></div>
+            <div class="mt-5 text-center">
+                <a id="save" class="btn btn-danger px-5">
+                    <i class="fal fa-save"></i>
+                    <span>@AppMenu.Save</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</form>
+
+<script>
+    $("#save").click(function() {
+        Ybq.postForm("#profile-form",
+            function(data) {
+                var response = JSON.parse(data);
+                Ybq.alert(response.message, response.success)
+                    .then(function() {
+                        var url = "/home/index";
+                        if (response.success) {
+                            Ybq.goto(url)
+                        }
+                        else {
+                            window.location.reload();
+                        }
+                    });
+            });
+    });
+</script>

@@ -1,0 +1,32 @@
+@using Salotto.Resources
+@using Youbiquitous.Martlet.Core.Extensions
+@using Salotto.App.Common.Helpers
+@model Salotto.App.Models.Login.UserViewModel
+
+@{
+    var user = Model.RelatedUser;
+    var firstOption = Model.IsEdit ? "" : "selected";
+}
+
+<div class="row">
+    <div class="col-6">
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control text-capitalize text-required" id="fn" name="FirstName"
+                   autofocus
+                   autocomplete="off"
+                   placeholder=" "
+                   value="@user.FirstName">
+            <label for="fn" id="fn_label" class="text-required-label">@AppStrings.Label_FirstName</label>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control text-capitalize text-required" id="ln" name="LastName"
+                   autofocus
+                   autocomplete="off"
+                   placeholder=" "
+                   value="@user.LastName">
+            <label for="ln" id="ln_label" class="text-required-label">@AppStrings.Label_LastName</label>
+        </div>
+    </div>
+</div>

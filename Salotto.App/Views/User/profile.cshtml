@@ -1,0 +1,72 @@
+@using Salotto.App.Common.Extensions
+@using Salotto.App.Common.UI.Sidebar
+@using Salotto.Resources
+@model Salotto.App.Models.Login.UserViewModel
+
+@{
+    var user = Model.RelatedUser;
+    var logged = User.Logged();
+}
+
+@section adhoc_css {
+    <link href="~/css/lib/jquery-confirm.min.css" rel="stylesheet" />
+}
+
+@section adhoc_scripts_top {
+}
+
+@section adhoc_scripts_bottom {
+    <script src="~/js/lib/jquery-confirm.min.js"></script>
+    <script src="~/js/lib/ybq/ybq-forms.min.js"></script>
+    <script src="~/js/lib/ybq/ditto-ybq-dialog.min.js"></script>
+    <script src="~/js/app-assets/caspio-userprofile.min.js"></script>
+}
+
+<overlay id="overlay" /> 
+
+
+<div class="row mb-4">
+    <div class="col-xl-4">
+        <partial name="pv_profile_summary" model="user" />
+    </div>
+
+    <div class="col-xl-8">
+        <div class="card mb-0">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs nav-tabs-custom nav-justified" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" data-bs-toggle="tab" href="#tab-personal" role="tab">
+                        <i class="fa fa-info-circle font-size-20"></i>
+                        <span class="d-none d-sm-block">@AppStrings.Label_Personal</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="tab" href="#tab-password" role="tab">
+                        <i class="fa fa-lock font-size-20"></i>
+                        <span class="d-none d-sm-block">@AppStrings.Label_Password</span>
+                    </a>
+                </li>
+            </ul>
+
+            <!-- Tab content -->
+            <div class="tab-content p-4">
+                <div class="tab-pane active" id="tab-personal" role="tabpanel">
+                    <partial name="pv_profile" />
+                </div>
+
+                <div class="tab-pane" id="tab-password" role="tabpanel">
+                    <partial name="pv_password" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    var Err_FillAllPasswordFields = "@AppMessages.Err_FillAllPasswordFields";
+    var Err_IdentityFieldsRequired = "@AppMessages.Info_Failed";
+    var System_ConnectionError = "@AppMessages.System_ConnectionError";
+    var System_SomethingWentWrong = "@AppMessages.System_SomethingWentWrong";
+    var Info_SavedChanges = "@AppMessages.Info_SavedChanges";
+</script>

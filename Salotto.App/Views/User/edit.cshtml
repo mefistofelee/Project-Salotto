@@ -1,0 +1,109 @@
+@using Salotto.Resources
+@using Salotto.App.Common.Extensions
+@using Salotto.App.Common.UI.Sidebar
+@using System.Web
+@model Salotto.App.Models.Login.UserViewModel
+@{
+    var operation = Model.IsEdit ? AppStrings.Text_Edit : AppStrings.Text_Create;
+    var user = Model.RelatedUser;
+}
+
+@section adhoc_css {
+    <link href="~/css/lib/jquery-confirm.min.css" rel="stylesheet" />
+}
+
+@section adhoc_scripts_bottom {
+    <script src="~/js/lib/jquery-confirm.min.js"></script>
+    <script src="~/js/lib/ybq/ybq-forms.min.js"></script>
+    <script src="~/js/lib/ybq/ybq-dialog.min.js"></script>
+    <script src="~/js/app-assets/caspio-userprofile.min.js"></script>
+}
+
+<div class="col-xl-12 mt-2">
+        <div class="card mb-0">
+            <div class="row p-3 pb-0">
+                <div class="col-6">
+                     <h4>@AppStrings.Text_User @operation </h4> 
+                </div>
+                <div class="col-6 text-end">
+                    <a id="save" class="btn btn-primary">
+                        <span>@AppMenu.Save</span>
+                    </a>
+                    <a id="saveAndClose" class="btn btn-primary">
+                        <span>@AppMenu.SaveAndClose</span>
+                    </a>
+                    <a id="backToList" href="/system/index" class="btn btn-tms">
+                        <span>@AppMenu.BackToList</span>
+                    </a>
+                </div>
+            </div>
+            <hr />
+
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs nav-tabs-custom nav-justified" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" data-bs-toggle="tab" href="#tab-user" role="tab">
+                        <i class="fa fa-info-circle font-size-20"></i>
+                        <span class="d-none d-sm-block">@AppStrings.Label_UserProperties</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="tab" href="#tab-profile" role="tab">
+                        <i class="fas fa-user"></i>                       
+                        <span class="d-none d-sm-block">@AppStrings.Label_ProfileProperties</span>
+                    </a>
+                </li>
+            </ul>
+
+            <!-- Tab content -->
+            <form id="addUser-form" autocomplete="off" method="post" action="/User/Save">
+                <hidden id="UserId" value="@user.UserId" autocomplete="off"></hidden>
+                <div class="tab-content p-4">
+                    <div class="tab-pane active" id="tab-user" role="tabpanel">
+                        <partial name="pv_userProperties" />
+                    </div>
+                    <div class="tab-pane" id="tab-profile" role="tabpanel">
+                        <partial name="pv_profileProperties" />
+                    </div>
+                </div>
+            </form>
+        </div>
+</div>
+<script>
+    $("#save").click(function () {
+        _checkRequiredFields();
+        Ybq.postForm("#addUser-form",
+            function (data) {
+                var response = JSON.parse(data);
+                Ybq.alert(response.message, response.success)
+                    .then(function () {
+                        var url = "/user/edit?id=" + response.key;
+                        if (response.success) {
+                            Ybq.goto(url)
+                        }
+                        else{
+                            window.location.reload();
+                        }
+                    });
+            });
+    });
+</script>
+<script>
+    $("#saveAndClose").click(function () {
+        _checkRequiredFields();
+        Ybq.postForm("#addUser-form",
+            function (data) {
+                var response = JSON.parse(data);
+                Ybq.alert(response.message, response.success)
+                    .then(function () {
+                        var url = "/system/index";
+                        if (response.success) {
+                            Ybq.goto(url)
+                        }
+                        else{
+                            window.location.reload();
+                        }
+                    });
+            });
+    });
+</script>

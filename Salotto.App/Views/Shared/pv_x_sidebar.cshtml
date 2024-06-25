@@ -1,0 +1,86 @@
+@using Youbiquitous.Martlet.Core.Extensions
+@model Salotto.App.Common.UI.Sidebar.Sidebar
+
+<style>
+    
+    ::-webkit-scrollbar {
+        width: 12px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: transparent;
+        border-right: solid 1px #000;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 25px;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #f80;
+    }
+
+</style>
+
+<div class="vertical-menu" style="height: 100%;">
+    <!-- Logo -->
+    <partial name="pv_x_logo" />
+
+    <!--- Side-menu -->
+    <div data-simplebar class="sidebar-menu-scroll">
+
+        <div id="sidebar-menu">
+            <!-- Left Menu Start -->
+            <ul class="metismenu list-unstyled" id="side-menu">
+
+                @foreach (var m in Model.Menus)
+                {
+                    if (!m.Header.IsNullOrWhitespace())
+                    {
+                        <li class="menu-title">@m.Header</li>
+                    }
+
+                    foreach (var item in m.Items)
+                    {
+                        if (item.HasSubmenu())
+                        {
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect text-decoration-none">
+                                    @if (!item.Icon.IsNullOrWhitespace())
+                                    {
+                                        <i class="@item.Icon"></i>
+                                    }
+                                    <span class="ms-1">@item.Label</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="true">
+                                    @foreach (var mi in item.Menu.Items)
+                                    {
+                                        <li>
+                                            <a class="@mi.Css text-decoration-none" href="@mi.Url" target="@mi.Target">
+                                                <span class="ms-1">@mi.Label</span>
+                                            </a>
+                                        </li>
+                                    }
+                                </ul>
+                            </li>
+                        }
+                        else
+                        {
+                            <li>
+                                <a class="@item.Css text-decoration-none" href="@item.Url" target="@item.Target">
+                                    <i class="@item.Icon"></i>
+                                    <span class="badge rounded-pill bg-primary float-end"></span>
+                                    <span class="ms-1">@item.Label</span>
+                                </a>
+                            </li>
+                        }
+                    }
+                }
+            </ul>
+        </div>
+    </div>
+</div>

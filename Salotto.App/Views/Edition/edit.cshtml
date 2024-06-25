@@ -1,0 +1,101 @@
+﻿@using Salotto.App.Common.Extensions
+@using Salotto.DomainModel.Activity
+@using Salotto.DomainModel.UserAccount
+@using Salotto.Resources
+@model Salotto.App.Models.Activities.EditionViewModel
+
+@{
+    Model.PageTitle = AppMenu.Edition + " " + AppStrings.Text_Edit;
+    var eventPreChosen = Model.Edition.Id == 0 && Model.Edition.EventId > 0;
+    var readOnly = eventPreChosen ? "read-only" : "";
+}
+
+<div class="card">
+    <div class="card-header">
+        @(Model.Edition.Id > 0 ? AppStrings.Text_Edit : AppStrings.Text_New) @AppMenu.Edition
+    </div>
+
+    <div class="card-body">
+        <form id="edition-edit-form" autocomplete="off" method="post" action="/edition/save">
+
+            <!--ID-->
+            <hidden id="Id" value="@Model.Edition.Id"/>
+
+            <div class="row">
+
+                <!--NAME-->
+                <div class="col-6 p-1">
+                    <div class="form-floating">
+                        <input id="name" type="text" class="form-control" name="Name" value="@Model.Edition.Name" />
+                        <label for="#name">@AppStrings.Label_Name</label>
+                    </div>
+                </div>
+
+                <!--DESCRIPTION-->
+                <div class="col-6 p-1">
+                    <div class="form-floating">
+                        <input id="description" type="text" class="form-control" name="Description" value="@Model.Edition.Description" />
+                        <label for="#description">@AppStrings.Label_Description</label>
+                    </div>
+                </div>
+
+                <!--EVENT-->
+                <div class="col-6 p-1">
+                    <div class="form-floating">
+                        <select class="form-select @readOnly" id="event" name="EventId">
+                            <!option>@AppStrings.Label_PleaseChoose</!option>
+                            @foreach(var e in Model.Events)
+                            {
+                                var selected = Model.Edition.EventId == e.Id ? "selected" : "";
+                                <!option @selected value="@e.Id">@e.Name</!option>
+                            }
+                        </select>
+                        <label for="#event">@AppStrings.Text_Event</label>
+                    </div>
+                </div>
+
+                <!--CAPACITY-->
+                <div class="col-6 p-1">
+                    <div class="form-floating">
+                        <input id="capacity" type="number" class="form-control" name="Capacity" value="@Model.Edition.Capacity" />
+                        <label for="#capacity">@AppStrings.Label_Capacity</label>
+                    </div>
+                </div>
+
+                <!--FROM-->
+                <div class="col-6 p-1">
+                    <div class="form-floating">
+                        <input id="from" type="date" class="form-control" name="StartDate" value="@Model.Edition.StartDate.ToString("yyyy-MM-dd")" />
+                        <label for="#from">@AppStrings.Label_StartDate</label>
+                    </div>
+                </div>
+
+                <!--TO-->
+                <div class="col-6 p-1">
+                    <div class="form-floating">
+                        <input id="to" type="date" class="form-control" name="EndDate" value="@Model.Edition.EndDate.ToString("yyyy-MM-dd")" />
+                        <label for="#to">@AppStrings.Label_EndDate</label>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="card-footer">
+        <div class="text-center">
+            <button type="button" id="save" class="btn btn-primary">@AppMenu.Save</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    $("#save").click(function () {
+        Ybq.postForm("#edition-edit-form", function (data) {
+            var response = JSON.parse(data);
+            Ybq.alert("SALOTTO | " + response.message, response.success, "", 5000)
+                .then(function () {
+                    Ybq.goto("/edition/all");
+                });
+        });
+    });
+</script>
