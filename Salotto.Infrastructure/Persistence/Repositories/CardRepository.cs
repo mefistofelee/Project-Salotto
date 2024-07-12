@@ -1,11 +1,13 @@
 using Microsoft.EntityFrameworkCore.ValueGeneration.Internal;
 using Salotto.DomainModel.Activity;
 using Salotto.DomainModel.UserAccount;
+using Salotto.Resources;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Youbiquitous.Martlet.Core.Types;
 
 namespace Salotto.Infrastructure.Persistence.Repositories
 {
@@ -30,6 +32,30 @@ namespace Salotto.Infrastructure.Persistence.Repositories
         #endregion
 
         #region WRITE
+
+        public CommandResponse CreatePending(long userId)
+        {
+            using var db = new SalottoDatabase();
+            try
+            {
+                var newCard = new Card()
+                {
+                    Code = Guid.NewGuid().ToString(),
+                    IsApproved = false,
+                    ApprovedByUserId = null,
+                    UserId = userId,
+                    ExpireDate= DateTime.UtcNow.AddYears(1),
+                };
+                db.Cards.Add(newCard);
+                db.SaveChanges();
+                return CommandResponse.Ok().AddMessage(AppMessages.Success_OperationCompleted);
+            }
+            catch
+            {
+                return CommandResponse.Fail().AddMessage(AppMessages.Err_Generic);
+            }
+        }
+
         #endregion
     }
 }

@@ -101,6 +101,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Views\Card\" />
     <Folder Include="wwwroot\js\lib\app-assets\" />
   </ItemGroup>
 

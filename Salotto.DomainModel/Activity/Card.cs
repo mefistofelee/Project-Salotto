@@ -20,13 +20,14 @@ namespace Salotto.DomainModel.Activity
         public long UserId { get; set; }
         public User User { get; set; }
 
-        public long ApprovedByUserId { get; set; }
+        public long? ApprovedByUserId { get; set; }
         public User ApprovedByUser { get; set; }
 
         #endregion
 
         #region PROPERTIES
 
+        public bool IsApproved { get; set; }
         public string Code { get; set; }
         public DateTime ExpireDate { get; set; }
 

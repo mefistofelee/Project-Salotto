@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using Salotto.App.Application;
+using Salotto.App.Common.Extensions;
 
 namespace Salotto.App.Controllers
 {
@@ -36,6 +37,20 @@ namespace Salotto.App.Controllers
         #endregion
 
         #region POST
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public IActionResult Request(long userId = 0)
+        {
+            userId = userId == 0 ? User.Logged().UserId : userId;
+            var response = _cardService.Request(userId);
+            return Json(response);
+        }
+
         #endregion
     }
 }
